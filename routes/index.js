@@ -15,18 +15,11 @@ function getWeightAll (req, res) {
 
 function setWeightList (req, res) {
   //var backend = req.query['backend'];
-  var servers = req.query['servers'];
-  var serversParsed = null;
-  try {
-    servers = JSON.parse(servers);
-  } catch (e) {
-    return res.json(typeof servers);
-  }
+  var servers = req.body.servers;
 
-  res.json('typeof servers ' + typeof servers + ' typeof parsed' + typeof serversParsed);
+  var isArray = Array.isArray(servers);
 
-
-
+  res.send({isArray: isArray});
 
 
   /*try {
